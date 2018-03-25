@@ -1,0 +1,44 @@
+
+.parentGrid {
+  display: grid;
+  /* 100 */
+  grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
+  /* 70 */
+  grid-template-rows: 20vh 15vh 15vh 15vh 15vh;
+  grid-template-areas: "topbar map map map rightbar"
+                       "sidebar map map map rightbar"
+                       "sidebar map map map rightbar"
+                       "sidebar map map map rightbar"
+                       "sidebar map map map .";
+  grid-row-gap: 0;
+}
+
+.topbar {
+  grid-area: topbar;
+}
+
+.map {
+  grid-area: map;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.rightbar {
+  grid-area: rightbar;
+}
+
+.menustyletop {
+  margin: 10%;
+  margin-bottom: 0%;
+  vertical-align: middle;
+}
+
+.menustyleside {
+  margin: 10%;
+}
+
+.mapstyle {
+  margin: 2.5%;
+}

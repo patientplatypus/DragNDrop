@@ -1,0 +1,41 @@
+
+version: "2"
+
+services:
+  # WORKS!!! But, no live reload for some reason - just use in prod
+  # frontend:
+  #   container_name: frontend
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - "./main/:/main/"
+  main:
+    container_name: main
+    build:
+      context: ./main
+      dockerfile: Dockerfile
+    ports:
+      - "8080:3000"
+    volumes:
+      - "./main/:/main/"
+  compute:
+    container_name: compute
+    build:
+      context: ./compute
+      dockerfile: Dockerfile
+    ports:
+      - "4000:3000"
+    volumes:
+      - "./compute/:/compute/"
+  loadbalancer:
+    container_name: loadbalancer
+    build:
+      context: ./loadbalancer
+      dockerfile: Dockerfile
+    ports:
+      - "5000:3000"
+    volumes:
+      - "./loadbalancer/:/loadbalancer/"

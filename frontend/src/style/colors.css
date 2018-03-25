@@ -1,0 +1,43 @@
+/* https://coolors.co/3b0d11-6a3937-706563-748386-9dc7c8 */
+/* darkRed, lightRed, grey, blueGrey, blue */
+
+
+.backDarkRed{
+  background-color: #3b0d11;
+}
+
+.textDarkRed{
+  color: #3b0d11;
+}
+
+.backLightRed{
+  background-color: #6a3937;
+}
+
+.textLightRed{
+  color: #6a3937;
+}
+
+.backGrey{
+  background-color: #706563;
+}
+
+.textGrey{
+  color: #706563;
+}
+
+.backBlueGrey{
+  background-color: #748386;
+}
+
+.textBlueGrey{
+  color: #748386;
+}
+
+.backBlue{
+  background-color: #9dc7c8;
+}
+
+.textBlue{
+  color: #9dc7c8;
+}

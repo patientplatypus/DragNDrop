@@ -1,0 +1,32 @@
+
+.boxCompute{
+  width: 7.5vw;
+  height: 7.5vw;
+  background-color: #bfc3ba;
+  border-radius: 2.5%;
+}
+
+.boxBlock{
+  width: 7.5vw;
+  height: 7.5vw;
+  background-color: #bfc3ba;
+  border-radius: 2.5%;
+}
+
+.boxVCN{
+  width: 7.5vw;
+  height: 7.5vw;
+  background-color: #bfc3ba;
+  border-radius: 2.5%;
+}
+
+.boxLoad{
+  width: 7.5vw;
+  height: 7.5vw;
+  background-color: #bfc3ba;
+  border-radius: 2.5%;
+}
+
+.iconHover {
+  cursor: pointer;
+}

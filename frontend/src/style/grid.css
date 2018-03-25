@@ -1,0 +1,51 @@
+.numberedGrid1 {
+  display: grid;
+  grid-template-columns: 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw;
+  grid-template-rows: 5vh 5vh 5vh 5vh 5vh 5vh 5vh 5vh 5vh 5vh 5vh 5vh 5vh 5vh 5vh 5vh 5vh 5vh 5vh 5vh;
+  grid-row-gap: 0;
+}
+
+.namedGridHome {
+  display: grid;
+  grid-row-gap: 0;
+  grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
+  grid-template-rows: 5vh 10vh 30vh 25vh 25vh 5vh;
+  grid-template-areas: "bar bar bar bar bar"
+                       "header header header header header"
+                       "main main main main main"
+                       "main main main main main"
+                       "main main main main main"
+                       "footer footer footer footer footer"
+}
+
+.headerHome {
+  grid-area: header;
+}
+
+.mainHome {
+  grid-area: main;
+}
+
+/* .sidebar {
+  grid-area: sidebar;
+} */
+
+.footerHome {
+  grid-area: footer;
+}
+
+.barHome {
+  grid-area: bar;
+}
+
+/* .namedGridMap {
+  display: grid;
+  grid-template-columns: 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw;
+  grid-template-rows: 10vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh;
+  grid-template-areas: "header header header header header"
+                       "main main main main main"
+                       "main main main main main"
+                       "main main main main main"
+                       "main main main main main"
+                       "footer footer footer footer footer"
+} */
