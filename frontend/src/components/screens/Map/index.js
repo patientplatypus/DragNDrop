@@ -94,18 +94,48 @@ class Map extends Component {
   }
 
   handleDeleteLink(id){
-    console.log('inside handleDeleteLink in indes.js and id: ', id);
+    console.log('inside handleDeleteLink in index.js and id: ', id);
     // var tempLines = this.state.lines;
     // var tempBoxes = this.state.boxes;
     var tempLines = this.props.linesRedux;
     var tempBoxes = this.props.boxesRedux;
     var parentIndex = this.props.linesRedux[id]['parentIndex'];
     var childIndex = this.props.linesRedux[id]['childIndex'];
-    tempBoxes[parentIndex]['lineID'].splice(id, 1);
-    tempBoxes[childIndex]['lineID'].splice(id, 1);
+    console.log('value of parentIndex: ', parentIndex);
+    console.log('value of childIndex: ', childIndex);
+    // tempBoxes[parentIndex]['lineID'].splice(id, 1);
+    // tempBoxes[childIndex]['lineID'].splice(id, 1);
+    //
+    // console.log('after splicing and value of tempBoxes: ', tempBoxes);
+    var tempArrBoxesParent = [];
+    tempBoxes[parentIndex]['lineID'].forEach(lineid=>{
+      if (lineid.id>id){
+        tempArrBoxesParent.push({type: lineid.type, id: lineid.id--})
+      }else if (lineid.id<id){
+        tempArrBoxesParent.push({type: lineid.type, id: lineid.id})
+      }
+    })
+    tempBoxes[parentIndex]['lineID'] = tempArrBoxesParent;
+    var tempArrBoxesChild = [];
+    tempBoxes[childIndex]['lineID'].forEach(lineid=>{
+      if (lineid.id>id){
+        tempArrBoxesChild.push({type: lineid.type, id: lineid.id--})
+      }else if (lineid.id<id){
+        tempArrBoxesChild.push({type: lineid.type, id: lineid.id})
+      }
+    })
+    tempBoxes[childIndex]['lineID'] = tempArrBoxesChild;
     tempLines.splice(id, 1);
+    console.log('value of tempBoxes: ');
+    console.log(tempBoxes);
+    console.log('value of tempLines: ');
+    console.log(tempLines);
     this.props.setBoxes(tempBoxes);
     this.props.setLines(tempLines);
+
+    setTimeout(()=>{
+      console.log('value of this.props.boxesRedux after deleting and timer: ', this.props.boxesRedux);
+    }, 2000)
     // this.setState({
     //   boxes: tempBoxes,
     //   lines: tempLines
@@ -176,8 +206,8 @@ class Map extends Component {
       console.log('value of tempBoxes after setting: ');
       console.log(tempBoxes);
       this.props.setBoxes(tempBoxes)
-      if(this.props.boxesRedux[index]['lineID'].length>0){
-        this.props.boxesRedux[index]['lineID'].forEach(lineID=>{
+      if(this.state.localBoxes[index]['lineID'].length>0){
+        this.state.localBoxes[index]['lineID'].forEach(lineID=>{
           if(lineID.type === "parent"){
             var tempLines = this.props.linesRedux;
             console.log('in onControlledDrag and tempLines: ', tempLines);
