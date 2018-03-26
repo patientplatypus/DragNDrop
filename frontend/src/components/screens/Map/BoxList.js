@@ -28,23 +28,23 @@ class MapBox extends Component {
   }
 
   componentWillReceiveProps(nextProps){
-    console.log('inside componentWillReceiveProps for BoxList');
-    console.log('value of this.props.boxesRedux: ', this.props.boxesRedux);
+    // console.log('inside componentWillReceiveProps for BoxList');
+    // console.log('value of this.props.boxesRedux: ', this.props.boxesRedux);
     if (this.props.boxesRedux!=nextProps.boxesRedux){
       this.setState({
         localBoxes: nextProps.boxesRedux
       }, ()=>{
-        console.log('value of localBoxes in componentWillReceiveProps: ', this.state.localBoxes);
+        // console.log('value of localBoxes in componentWillReceiveProps: ', this.state.localBoxes);
       })
     }
   }
 
-  handleAddLine(index){
+  handleAddLine(id, index){
     var coords = this.state.localBoxes[index]['controlledPosition'];
-    this.props.handleAddLine(coords, index)
+    this.props.handleAddLine(coords, id, index)
   }
 
-  onStart() {
+  onStart(lineID) {
     this.setState({activeDrags: ++this.state.activeDrags});
   }
 
@@ -53,9 +53,9 @@ class MapBox extends Component {
   }
 
   onControlledDrag(e, position, i){
-    console.log('in onControlledDrag');
-    console.log('value of position: ', position);
-    console.log('value of e; ', e);
+    // console.log('in onControlledDrag');
+    // console.log('value of position: ', position);
+    // console.log('value of e; ', e);
     const {x, y} = position;
     var tempLocalBoxes = this.state.localBoxes;
     tempLocalBoxes[i]['controlledPosition']['x'] = x;
@@ -89,9 +89,13 @@ class MapBox extends Component {
                   }}
                   position={{x: this.state.localBoxes[i]['controlledPosition']['x'], y: this.state.localBoxes[i]['controlledPosition']['y']}}
                   style={{position: "absolute"}}
-                  onDrag={(e, position)=>this.onControlledDrag(e, position, i)}
+                  onDrag={(e, position)=>this.onControlledDrag(e, position, i, this.state.localBoxes[i]['id'])}
                 >
-                  <div className='boxCompute' style={{position:'absolute'}}>
+                  <div className='boxCompute' style={{position:'absolute'}}
+                  onClick={()=>{
+                    this.props.setRightMenuObject(this.state.localBoxes[i]);
+                  }}
+                  >
                     <FlexRow>
                       <Flex1/>
                       <Flex8>
@@ -123,19 +127,26 @@ class MapBox extends Component {
                             </p>
                           </div>
                         )}
+                        {renderIf(this.state.localBoxes[i].hasOwnProperty('name'))(
+                          <div style={{fontWeight: "bold"}}>
+                            <p>
+                              {this.state.localBoxes[i]['name']}
+                            </p>
+                          </div>
+                        )}
                       </Flex8>
                       <Flex1/>
                       <Flex1>
                         <Popover content={
                           <Menu>
                             <MenuItem icon="link" text="Create Link" onClick={()=>{
-                              this.handleAddLine(i);
+                              this.handleAddLine(this.state.localBoxes[i]['id'], i);
                             }}/>
                             {renderIf(this.state.localBoxes[i]['lineID'].length>0)(
                               <MenuItem icon="heart-broken" text="Break Link">
                                 {[...Array(this.state.localBoxes[i]['lineID'].length)].map((a, b) =>
                                   <MenuItem text={`Link ${this.state.localBoxes[i]['lineID'][b]['id']}`}
-                                  onClick={()=>this.props.handleDeleteLink(this.state.localBoxes[i]['lineID'][b]['id'])}
+                                  onClick={()=>this.props.handleDeleteLink(this.state.localBoxes[i], this.state.localBoxes[b], this.state.localBoxes[i]['lineID'][b])}
                                   />
                                 )}
                               </MenuItem>

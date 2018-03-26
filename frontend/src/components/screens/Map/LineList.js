@@ -30,10 +30,10 @@ class MapLine extends Component {
     // if(nextProps!=this.props){
     //   this.forceUpdate();
     // }
-    console.log('**(*&(&(*&(&(*&(*&(*&(&(&(*&(*&(*&(*&())))))))))))))');
-    console.log('inside componentWillReceiveProps for LineList');
-    console.log('**(*&(&(*&(&(*&(*&(*&(&(&(*&(*&(*&(*&())))))))))))))')
-    console.log('and this.props.linesRedux: ', this.props.linesRedux);
+    // console.log('**(*&(&(*&(&(*&(*&(*&(&(&(*&(*&(*&(*&())))))))))))))');
+    // console.log('inside componentWillReceiveProps for LineList');
+    // console.log('**(*&(&(*&(&(*&(*&(*&(&(&(*&(*&(*&(*&())))))))))))))')
+    // console.log('and this.props.linesRedux: ', this.props.linesRedux);
     if (this.props.linesRedux!=nextProps.linesRedux){
       this.setState({
         localLines: nextProps.linesRedux
@@ -44,9 +44,9 @@ class MapLine extends Component {
   render() {
     return (
       <svg width="100%" height="100%" style={{position: "absolute", pointerEvents: 'none'}}>
-        {[...Array(this.state.localLines.length)].map((x, i) =>
+        {[...Array(this.props.linesRedux.length)].map((x, i) =>
           <line
-          x1={this.state.localLines[i].x1+50} y1={this.state.localLines[i].y1+50} x2={this.state.localLines[i].x2+50} y2={this.state.localLines[i].y2+50}
+          x1={this.props.linesRedux[i].x1+50} y1={this.props.linesRedux[i].y1+50} x2={this.props.linesRedux[i].x2+50} y2={this.props.linesRedux[i].y2+50}
           key={i}
           style={{fill: 'none', stroke: '#000000', strokeWidth: 3}}/>
         )}
