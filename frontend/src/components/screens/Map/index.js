@@ -152,7 +152,7 @@ class Map extends Component {
       },  ()=>{
         var tempBoxes = this.props.boxesRedux;
         tempBoxes[this.state.linkHolder.parentIndex]['lineID'].push({type: 'parent', id: this.state.linkHolder.id, index:this.state.linkHolder.parentIndex, boxID: this.state.linkHolder.parentID, indexLinkParent: this.state.linkHolder.indexLinkParent});
-        tempBoxes[this.state.linkHolder.childIndex]['lineID'].push({type: 'child', id: this.state.linkHolder.id, boxID: this.state.linkHolder.childID, index:this.state.linkHolder.childIndex, indexLinkChild: this.state.linkHolder.indexLinkChild});
+        tempBoxes[this.state.linkHolder.childIndex]['lineID'].push({type: 'child', id: this.state.linkHolder.id, index:this.state.linkHolder.childIndex, boxID: this.state.linkHolder.childID,  indexLinkChild: this.state.linkHolder.indexLinkChild});
 
         var tempLines = this.props.linesRedux;
         tempLines.push(this.state.linkHolder);
