@@ -1,4 +1,11 @@
 
+.codeBox{
+  width: 7.5vw;
+  height: 7.5vw;
+  background-color: #bfc3ba;
+  border-radius: 2.5%;
+}
+
 .boxCompute{
   width: 7.5vw;
   height: 7.5vw;

@@ -5,8 +5,14 @@
 // export * from './rx/fillrx';
 // export * from './rx/getiot';
 
-export * from './relationships/lines';
-export * from './relationships/boxes';
+export * from './infrastructure/lines';
+export * from './infrastructure/boxes';
+
+export * from './code/pipes';
+export * from './code/codes';
+
+export * from './backendCalls/runCode';
+
 // export * from './stock/sendorder';
 // export * from './chaincode/query';
 // export * from './chaincode/sendlastprice';

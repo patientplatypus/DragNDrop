@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './mainGrid.css'
 import './local.css'
 import '../../../style/colors.css'
-import {Flex1, FlexRow, FlexColumn} from '../../../style/Flex.js'
+import {Flex1, Flex2, Flex3, Flex4, Flex5, Flex6, Flex7, Flex8, Flex9, Flex10, Flex11, Flex12, FlexRow, FlexColumn} from '../../../style/Flex.js'
 import MapBox from './BoxList'
 import Draggable, {DraggableCore} from 'react-draggable';
 import { AnchorButton, Button, Intent, Switch, Card, Breadcrumb, Spinner, Menu, MenuItem, MenuDivider, Popover, Position } from "@blueprintjs/core";
@@ -28,29 +28,41 @@ class LeftMenuBig extends Component {
   render() {
     return (
       <div style={{height: "100%", width: "100%"}}>
-        <Popover content={
-          <Menu>
-            <MenuItem icon="graph" text="Compute Instance" onClick={()=>{
-              this.props.handleAddInfrustructure("compute")
-            }} />
-            <MenuItem icon="map" text="Block Storage" onClick={()=>{
-              this.props.handleAddInfrustructure("block")
-            }}/>
-            <MenuItem icon="th" text="VCN" onClick={()=>{
-              this.props.handleAddInfrustructure("VCN")
-            }}/>
-            <MenuItem icon="zoom-to-fit" text="Load Balancer" onClick={()=>{
-              this.props.handleAddInfrustructure("balancer")
-            }}/>
-            <MenuDivider />
-            <MenuItem icon="cog" text="Settings...">
-                <MenuItem icon="add" text="Add new application" disabled={true} />
-                <MenuItem icon="remove" text="Remove application" />
-            </MenuItem>
-          </Menu>
-          } position={Position.RIGHT_TOP}>
-          <Button icon="share" text="Add Infrastructure" />
-        </Popover>
+        <FlexColumn>
+          <Flex1>
+            <Popover content={
+              <Menu>
+                <MenuItem icon="graph" text="Compute Instance" onClick={()=>{
+                  this.props.handleAddInfrustructure("compute")
+                }} />
+                <MenuItem icon="map" text="Block Storage" onClick={()=>{
+                  this.props.handleAddInfrustructure("block")
+                }}/>
+                <MenuItem icon="th" text="VCN" onClick={()=>{
+                  this.props.handleAddInfrustructure("VCN")
+                }}/>
+                <MenuItem icon="zoom-to-fit" text="Load Balancer" onClick={()=>{
+                  this.props.handleAddInfrustructure("balancer")
+                }}/>
+                <MenuDivider />
+                <MenuItem icon="cog" text="Settings...">
+                    <MenuItem icon="add" text="Add new application" disabled={true} />
+                    <MenuItem icon="remove" text="Remove application" />
+                </MenuItem>
+              </Menu>
+              } position={Position.RIGHT_TOP}>
+              <Button icon="share" text="Add Infrastructure" />
+            </Popover>
+          </Flex1>
+          <Flex1>
+            <Button icon="code" text="Add Code Block"
+              onClick={()=>{
+                this.props.handleAddCodeBlock();
+              }}
+            />
+          </Flex1>
+          <Flex8/>
+        </FlexColumn>
       </div>
     );
   }

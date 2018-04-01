@@ -1,0 +1,5 @@
+name: nodefn2
+version: 0.0.2
+runtime: node
+entrypoint: node func.js
+format: json

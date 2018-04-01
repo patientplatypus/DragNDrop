@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fn_kotlin_artifactID.iml" filepath="$PROJECT_DIR$/.idea/modules/fn_kotlin_artifactID.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fn_kotlin_artifactID_main.iml" filepath="$PROJECT_DIR$/.idea/modules/fn_kotlin_artifactID_main.iml" group="fn_kotlin_artifactID" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fn_kotlin_artifactID_test.iml" filepath="$PROJECT_DIR$/.idea/modules/fn_kotlin_artifactID_test.iml" group="fn_kotlin_artifactID" />
+    </modules>
+  </component>
+</project>

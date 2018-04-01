@@ -2,6 +2,9 @@ import  { combineReducers }  from 'redux'
 
 import linesreducer from './lines'
 import boxesreducer from './boxes'
+import codesreducer from './codes'
+import pipesreducer from './pipes'
+import runcodereducer from './runCode'
 
 
 export default combineReducers({
@@ -11,5 +14,8 @@ export default combineReducers({
   // settoken,
   // guireducer1,
   linesreducer,
-  boxesreducer
+  boxesreducer,
+  codesreducer,
+  pipesreducer,
+  runcodereducer
 })
